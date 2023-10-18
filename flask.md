@@ -1,6 +1,8 @@
+
+
 # Flask-SQLAlchemy
 
-## Introduction
+## ***Introduction***
 
 Flask-SQLAlchemy is a powerful extension to Flask that simplifies the integration of SQL databases with applications, and it leverages the SQLAlchemy library (*SQLAlchemy is a powerful Python SQL package that allows users to perform a variety of database operations, including creating, reading, updating and deleting (CRUD) data*) to provide an easy way to interact with databases. With Flask-SQLAlchemy, users can define models as Python classes corresponding to database tables, which makes working with databases very intuitive. It supports a wide range of relational databases, provides ORM (Object-Relational Mapping) functionality, and helps with tasks such as database migration, query optimisation and session management.
 
@@ -12,23 +14,23 @@ Open the system terminal, enter the following command and press the Enter key to
 
 > pip install flask-sqlalchemy
 
-![install_flask-sqlalchemy](photo/3.png)
+![install_flask-sqlalchemy](img/3.png)
 
 
 
-## Application--Simple login and registration page
+## ***Application--Simple login and registration page***
 
 Here we use a simple application to show how to perform various database operations (CRUD).
 
 First we need to open pycharm and create a new project.
 
-![open_pycharm](photo/4.png)
+![open_pycharm](img/4.png)
 
 
 
-### **app.py**
+### **app .py**
 
-1. Import modules and libraries
+ 1. Import modules and libraries
 
    we need to import necessary modules, including `Flask`, `render_template`, `redirect`,`request` , `session`and `SQLAlchemy` .
 
@@ -161,7 +163,7 @@ First we need to open pycharm and create a new project.
 
    - Delete User Route
 
-     This route allows users to delete other users.If a POST request is made , it will delete a user based on the provided username.It checks if the user exists, deletes the user's record from the database, and commits the change. Then a success or failure message is displayed.
+     This route allows users to delete other users.If a POST request is made , it will delete a user based on the provided username. It checks if the user exists, deletes the user's record from the database, and commits the change. Then a success or failure message is displayed.
 
      ```python
      #route:delete
@@ -239,7 +241,7 @@ First we need to open pycharm and create a new project.
              return 'Successful registration'
 
          return render_template('register.html')
-     ```
+    
 
 
      if __name__ == '__main__':
@@ -315,7 +317,7 @@ The "Delete User" form allows a user to enter the username of the user they want
 
 
 
-### update.html
+### **update.html**
 
 The "Update Password" form allows a user to change their password by entering their old password, new password, and confirming the new password.
 
