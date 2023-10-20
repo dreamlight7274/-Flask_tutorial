@@ -1,8 +1,9 @@
 
 
+
 # Flask-SQLAlchemy
 
-## ***Introduction***
+## Introduction
 
 Flask-SQLAlchemy is a powerful extension to Flask that simplifies the integration of SQL databases with applications, and it leverages the SQLAlchemy library (*SQLAlchemy is a powerful Python SQL package that allows users to perform a variety of database operations, including creating, reading, updating and deleting (CRUD) data*) to provide an easy way to interact with databases. With Flask-SQLAlchemy, users can define models as Python classes corresponding to database tables, which makes working with databases very intuitive. It supports a wide range of relational databases, provides ORM (Object-Relational Mapping) functionality, and helps with tasks such as database migration, query optimisation and session management.
 
@@ -18,7 +19,7 @@ Open the system terminal, enter the following command and press the Enter key to
 
 
 
-## ***Application--Simple login and registration page***
+## Application--Simple login and registration page
 
 Here we use a simple application to show how to perform various database operations (CRUD).
 
@@ -28,9 +29,9 @@ First we need to open pycharm and create a new project.
 
 
 
-### **app .py**
+### **app.py**
 
- 1. Import modules and libraries
+1. Import modules and libraries
 
    we need to import necessary modules, including `Flask`, `render_template`, `redirect`,`request` , `session`and `SQLAlchemy` .
 
@@ -163,7 +164,7 @@ First we need to open pycharm and create a new project.
 
    - Delete User Route
 
-     This route allows users to delete other users.If a POST request is made , it will delete a user based on the provided username. It checks if the user exists, deletes the user's record from the database, and commits the change. Then a success or failure message is displayed.
+     This route allows users to delete other users.If a POST request is made , it will delete a user based on the provided username.It checks if the user exists, deletes the user's record from the database, and commits the change. Then a success or failure message is displayed.
 
      ```python
      #route:delete
@@ -241,16 +242,20 @@ First we need to open pycharm and create a new project.
              return 'Successful registration'
 
          return render_template('register.html')
-    
-
 
      if __name__ == '__main__':
-         app.run()
+          app.run()
+      
      ```
-    
-     ​
 
-### **login.html**
+
+
+
+​     
+
+
+
+### login.html
 
 This form consists of username and password fields, and a login button. User need to enters a username and password and then submits the form to login.
 A link is also provided to allow the user to jump to the registration page for new user registration.
@@ -317,7 +322,7 @@ The "Delete User" form allows a user to enter the username of the user they want
 
 
 
-### **update.html**
+### update.html
 
 The "Update Password" form allows a user to change their password by entering their old password, new password, and confirming the new password.
 
@@ -335,3 +340,64 @@ The "Update Password" form allows a user to change their password by entering th
     </form>
 </body>
 ```
+
+
+
+
+
+### **Result**
+
+**main page--before login**
+
+![notLogin](img/6.png)
+
+
+
+**login page**
+
+enter the username and the password to login. If you want to create a new user, click on the register button.
+
+![login](img/7 .png)
+
+
+
+**register page**
+
+input the username and password and click register, a new user will be created.
+
+![register](img/8.png)
+
+
+
+**main page--successful login**
+
+when successful login,you can see all the user in the page.
+
+![successful_login](img/9.png)
+
+
+
+if you click on the Delete user ,it will change to the delete page. For example delete the user `12`
+
+![delete_user](img/10.png)
+
+back to the main page, you will find the user `12`  has been deleted
+
+![mainpage](img/11.png)
+
+ 
+
+If you click on the Update user password. For example, we change the password of the `123`user. we changed the password from`12` to `123`
+
+![update](img/12.png)
+
+Then back to the login page, and we find the password has been changed.
+
+
+
+
+
+
+
+
+
