@@ -355,6 +355,14 @@ block: Define the areas that can be covered by subtemplates, such as
 
 **block content,  endeblock**
 
+#### **Subtemplates**
+In the child template, we extend the content in the parent template and override the title and content defined in the parent template in the block tag. The variables and filters defined in the parent template are still accessible in the child template, and new content can be defined.
+
+![extend_block](img/extend_block.jpg)
+
+`{% extends "inheritance.html" %}`: Subtemplate uses {% extends "inheritance.html" %} to inherit the base template. Populates the {% block content %} section of the base template.
+![inheritance](img/inheritance.png)
+
 # Flask-SQLAlchemy
 
 ## Introduction
