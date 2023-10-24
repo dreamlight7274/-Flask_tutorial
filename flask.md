@@ -342,7 +342,9 @@ A base template is a template that contains a common web page structure and layo
 </head>
 <body>
 <h1 style="background: blue">I want to use it top all the time</h1><hr><hr><hr>
-{% block content %}{% endblock %}
+```
+**{% block content %}{% endblock %}** (it should be inside the code, just because it will cause some errors when uploading)
+```html
 <hr><hr><hr>
 <h1 style="background: blue">I want to use it bottom all the time</h1>
 </body>
@@ -350,9 +352,9 @@ A base template is a template that contains a common web page structure and layo
 ```
 
 block: Define the areas that can be covered by subtemplates, such as 
-```html
-{% block content %} {% endeblock %}
-```
+
+**{% block content %} {% endeblock %}**
+
 # Flask-SQLAlchemy
 
 ## Introduction
