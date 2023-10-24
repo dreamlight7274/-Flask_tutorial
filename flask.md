@@ -203,7 +203,121 @@ Need to use pipes after variables (|) Splitting, multiple filters can be called 
 
 ![Joined List](img/JoinedList.png)
 ![template.html](img/filter.png)
+### ***static***
 
+Static files are files that do not need to be generated dynamically in a web application, such as images, style sheets, and JavaScript files. In Flask, static files are usually stored in the static directory at the root of the application. Flask automatically exposes static files in that directory to the outside world so that they can be referenced in templates.
+  ![static file](img/staticfile.png)
+
+#### **app .py**
+```python
+    app = Flask(__name__)
+    @app.route('/test6_static/')
+    def test6():  # put application's code here
+        return render_template("test6_static.html")
+```
+- `/test6_static/`:It is defined using the @app.route decorator, linking it to the function test6.
+The test6 function calls the render_template function, which renders the template file named "test6_static.html" and returns the rendered content.
+When a user accesses the URL **http://127.0.0.1:5000/test6_static//**, the Flask application will invoke the test6 function and return the rendered template content to the user's browser.
+
+![test6_static.html](img/test6_static.html.png)
+
+#### **static.html**
+`test6_static.html`
+```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        {#<link rel="stylesheet" href="{{ url_for('static', filename='css/') }}">#}
+        {#<script src="{{ url_for('static', filename='js/') }}"></script>#}
+        <meta charset="UTF-8">
+        <title>image</title>
+    </head>
+    <body>
+        <img src="{{ url_for('static', filename="img/faker.jpg")}}" alt="faker">
+    </body>
+    </html>
+```
+Make sure you have files named style.css and script.js in the static folder. This way, when you access the root path of the Flask application, an HTML page containing a reference to a static file is returned.
+
+### ***control***
+
+In Flask, you can use the Jinja2 template engine to control the rendering logic in your templates.   This means that you can use conditional statements and loops in your templates to dynamically generate HTML content.   These controls determine whether to include specific HTML content at render time based on the data provided, you can pass data to the template as it renders, and use control structures to dynamically generate page content based on that data.   This allows you to generate different pages for different situations, providing a better user experience.
+
+#### **app .py**
+```python
+    @app.route('/test4_control')
+    def test4():  # put application's code here
+        mark = 80
+        #mark = 30
+        T1 = [{
+            "ID": "Faker",
+            "position": "Mid"
+        },
+            {
+            "ID": "Zeus",
+            "position": "top"
+            },
+            {
+            "ID": "Oner",
+            "position": "jug"
+            },
+            {
+            "ID": "Gumayusi",
+            "position": "AD"
+            },
+            {
+                "ID": "Keria",
+                "position": "sup"
+            }]
+        return render_template("test4_control.html", mark_in_html= mark, T1_in_html = T1)
+```
+
+- `T1`: Defines a list of multiple dictionaries.
+
+ ![T1](img/T1.png)
+
+- `render_template`: The render_template function was called to render the template file named 'test4_control.html' and the values of the variables mark and T1 were passed.
+
+Examples of conditional and loop statements:
+
+#### **control.html**
+```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>control</title>
+    </head>
+    <body>
+
+    # brace and percent symbol
+    <h1>mark is {{ mark_in_html }}</h1>
+    {% if mark_in_html >= 40 %}
+        <h2>You have passed the exam</h2>
+        {% else %}
+        <h2>Sorry, but don't panic</h2>
+    {% endif %}
+    <br>
+    <br>
+    <br>
+    {% for teammember in T1_in_html %}
+        <h3>ID: {{ teammember.ID }} position:{{ teammember.position }}</h3><hr>
+    {% endfor %}
+    </body>
+    </html>
+```
+1. Conditional statements:
+Jinja2's conditional statements are used to perform different actions in a template based on specific conditions. It allows us to execute different blocks of code depending on the truth or falsity of certain conditions.
+
+- `{% if mark_in_html >= 40 %}`: It is a conditional statement. It checks if the variable mark_in_html is greater than or equal to 40. If the condition is true, it will show <h2>You have passed the exam</h2>, otherwise it will show <h2>Sorry, but don't panic</h2>.
+
+![Conditional1](img/Conditional1.png)
+![Conditional2](img/Conditional2.png)
+
+2. Loop statements
+- `{% for teammember in T1_in_html %}`: It is a loop statement that iterates through each element in the list T1_in_html. In each iteration, the variable teammember represents an element in the list, and we can access its properties through the teammember.
+
+![teammember](img/teammember.png)
 # Flask-SQLAlchemy
 
 ## Introduction
