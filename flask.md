@@ -239,6 +239,9 @@ When a user accesses the URL **http://127.0.0.1:5000/test6_static//**, the Flask
 ```
 Make sure you have files named style.css and script.js in the static folder. This way, when you access the root path of the Flask application, an HTML page containing a reference to a static file is returned.
 
+### ***control***
+
+In Flask, you can use the Jinja2 template engine to control the rendering logic in your templates.   This means that you can use conditional statements and loops in your templates to dynamically generate HTML content.   These controls determine whether to include specific HTML content at render time based on the data provided, you can pass data to the template as it renders, and use control structures to dynamically generate page content based on that data.   This allows you to generate different pages for different situations, providing a better user experience.
 
 # Flask-SQLAlchemy
 
