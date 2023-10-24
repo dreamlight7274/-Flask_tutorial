@@ -280,6 +280,33 @@ In Flask, you can use the Jinja2 template engine to control the rendering logic 
 
 Examples of conditional and loop statements:
 
+#### **control.html**
+```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>control</title>
+    </head>
+    <body>
+
+    # brace and percent symbol
+    <h1>mark is {{ mark_in_html }}</h1>
+    {% if mark_in_html >= 40 %}
+        <h2>You have passed the exam</h2>
+        {% else %}
+        <h2>Sorry, but don't panic</h2>
+    {% endif %}
+    <br>
+    <br>
+    <br>
+    {% for teammember in T1_in_html %}
+        <h3>ID: {{ teammember.ID }} position:{{ teammember.position }}</h3><hr>
+    {% endfor %}
+    </body>
+    </html>
+```
+
 # Flask-SQLAlchemy
 
 ## Introduction
