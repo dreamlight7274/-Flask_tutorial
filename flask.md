@@ -318,6 +318,19 @@ Jinja2's conditional statements are used to perform different actions in a templ
 - `{% for teammember in T1_in_html %}`,`{% endfor%}`: It is a loop statement that iterates through each element in the list T1_in_html. In each iteration, the variable teammember represents an element in the list, and we can access its properties through the teammember.
 
 ![teammember](img/teammember.png)
+### ***inheritance***
+The most powerful part of Jinja is template inheritance. Template inheritance allows you to build a basic template "skeleton" that contains elements common to your site and defines the blocks that child templates can override.
+#### **app .py**
+```python
+@app.route('/test5_inheritance/')
+def test5():  # put application's code here
+    user2 = Client(3, "Faker")
+    return render_template("test5_inheritance.html")
+```
+1. `test5_inheritance`: A view function named test5 is defined that handles GET requests for the /test5_inheritance/ path.
+2. `user2`: A client object named user2 is created that has an attribute with ID 3 and the name "Faker".
+3. `return`: It renders a template named test5_inheritance.html using render_template functions and returns it as an HTTP response.
+
 
 # Flask-SQLAlchemy
 
