@@ -340,7 +340,7 @@ def test5():  # put application's code here
 #### **Base template**
 A base template is a template that contains a common web page structure and layout, which defines the overall frame of the web page and shared elements, such as navigation bars, footers, sidebars, and so on. The base template provides a unified structure that allows for a consistent look and layout when creating multiple web pages, as well as a convenient way to manage shared page elements. Let's go create a base template named template.html, it defines a simple HTML skeleton document.
 
-```html
+<!-- ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -354,7 +354,7 @@ A base template is a template that contains a common web page structure and layo
 <h1 style="background: blue">I want to use it bottom all the time</h1>
 </body>
 </html>
-```
+``` -->
 
 `{% block %}`: Define the areas that can be covered by subtemplates, such as {%Bullock Content%}{%EndeBullock%}.
 
