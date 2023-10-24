@@ -211,7 +211,96 @@ we need to import necessary modules, including <code>Flask</code>, <code>render_
 </ol>
 <p><img src="img/JoinedList.png" alt="Joined List"><br>
 <img src="img/filter.png" alt="template.html"></p>
-<h1 id="flask-sqlalchemy">Flask-SQLAlchemy </h1>
+<h3 id="static"><em><strong>static</strong></em> </h3>
+<p>Static files are files that do not need to be generated dynamically in a web application, such as images, style sheets, and JavaScript files. In Flask, static files are usually stored in the static directory at the root of the application. Flask automatically exposes static files in that directory to the outside world so that they can be referenced in templates.<br>
+<img src="img/staticfile.png" alt="static file"></p>
+<h4 id="app-py-2"><strong>app .py</strong> </h4>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>    app <span class="token operator">=</span> Flask<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
+    <span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">'/test6_static/'</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">test6</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment"># put application's code here</span>
+        <span class="token keyword keyword-return">return</span> render_template<span class="token punctuation">(</span><span class="token string">"test6_static.html"</span><span class="token punctuation">)</span>
+</code></pre><ul>
+<li><code>/test6_static/</code>:It is defined using the @app.route decorator, linking it to the function test6.<br>
+The test6 function calls the render_template function, which renders the template file named "test6_static.html" and returns the rendered content.<br>
+When a user accesses the URL <strong><a href="http://127.0.0.1:5000/test6_static//">http://127.0.0.1:5000/test6_static//</a></strong>, the Flask application will invoke the test6 function and return the rendered template content to the user's browser.</li>
+</ul>
+<p><img src="img/test6_static.html.png" alt="test6_static.html"></p>
+<h4 id="statichtml"><strong>static.html</strong> </h4>
+<p><code>test6_static.html</code></p>
+<pre data-role="codeBlock" data-info="html" class="language-html html"><code>    <span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+        {#<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>{{ url_for('static', filename='css/') }}<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>#}
+        {#<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>{{ url_for('static', filename='js/') }}<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>#}
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>image<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>{{ url_for('static', filename='img/faker.jpg')}}<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>faker<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>Make sure you have files named style.css and script.js in the static folder. This way, when you access the root path of the Flask application, an HTML page containing a reference to a static file is returned.</p>
+<h3 id="control"><em><strong>control</strong></em> </h3>
+<p>In Flask, you can use the Jinja2 template engine to control the rendering logic in your templates.   This means that you can use conditional statements and loops in your templates to dynamically generate HTML content.   These controls determine whether to include specific HTML content at render time based on the data provided, you can pass data to the template as it renders, and use control structures to dynamically generate page content based on that data.   This allows you to generate different pages for different situations, providing a better user experience.</p>
+<h4 id="app-py-3"><strong>app .py</strong> </h4>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>    <span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">'/test4_control'</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">test4</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment"># put application's code here</span>
+        mark <span class="token operator">=</span> <span class="token number">80</span>
+        <span class="token comment">#mark = 30</span>
+        T1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+            <span class="token string">"ID"</span><span class="token punctuation">:</span> <span class="token string">"Faker"</span><span class="token punctuation">,</span>
+            <span class="token string">"position"</span><span class="token punctuation">:</span> <span class="token string">"Mid"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+            <span class="token string">"ID"</span><span class="token punctuation">:</span> <span class="token string">"Zeus"</span><span class="token punctuation">,</span>
+            <span class="token string">"position"</span><span class="token punctuation">:</span> <span class="token string">"top"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+            <span class="token string">"ID"</span><span class="token punctuation">:</span> <span class="token string">"Oner"</span><span class="token punctuation">,</span>
+            <span class="token string">"position"</span><span class="token punctuation">:</span> <span class="token string">"jug"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+            <span class="token string">"ID"</span><span class="token punctuation">:</span> <span class="token string">"Gumayusi"</span><span class="token punctuation">,</span>
+            <span class="token string">"position"</span><span class="token punctuation">:</span> <span class="token string">"AD"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">"ID"</span><span class="token punctuation">:</span> <span class="token string">"Keria"</span><span class="token punctuation">,</span>
+                <span class="token string">"position"</span><span class="token punctuation">:</span> <span class="token string">"sup"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">]</span>
+        <span class="token keyword keyword-return">return</span> render_template<span class="token punctuation">(</span><span class="token string">"test4_control.html"</span><span class="token punctuation">,</span> mark_in_html<span class="token operator">=</span> mark<span class="token punctuation">,</span> T1_in_html <span class="token operator">=</span> T1<span class="token punctuation">)</span>
+</code></pre><ul>
+<li><code>T1</code>: Defines a list of multiple dictionaries.</li>
+</ul>
+<p><img src="img/T1.png" alt="T1"></p>
+<ul>
+<li><code>render_template</code>: The render_template function was called to render the template file named 'test4_control.html' and the values of the variables mark and T1 were passed.</li>
+</ul>
+<p>Examples of conditional and loop statements:</p>
+<h4 id="controlhtml"><strong>control.html</strong> </h4>
+<pre data-role="codeBlock" data-info="html" class="language-html html"><code>    <span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>control<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+
+    # brace and percent symbol
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>mark is {{ mark_in_html }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+    {% if mark_in_html &gt;= 40 %}
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>You have passed the exam<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+        {% else %}
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>Sorry, but don't panic<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+    {% endif %}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">&gt;</span></span>
+    {% for teammember in T1_in_html %}
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>ID: {{ teammember.ID }} position:{{ teammember.position }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span><span class="token punctuation">&gt;</span></span>
+    {% endfor %}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre><h1 id="flask-sqlalchemy">Flask-SQLAlchemy </h1>
 <h2 id="introduction-1">Introduction </h2>
 <p>Flask-SQLAlchemy is a powerful extension to Flask that simplifies the integration of SQL databases with applications, and it leverages the SQLAlchemy library (<em>SQLAlchemy is a powerful Python SQL package that allows users to perform a variety of database operations, including creating, reading, updating and deleting (CRUD) data</em>) to provide an easy way to interact with databases. With Flask-SQLAlchemy, users can define models as Python classes corresponding to database tables, which makes working with databases very intuitive. It supports a wide range of relational databases, provides ORM (Object-Relational Mapping) functionality, and helps with tasks such as database migration, query optimisation and session management.</p>
 <p>SQLAlchemy supports a wide range of database backends, including SQLite, MySQL, PostgreSQL, Oracle, and more, so user can easilychoose the suitable database for their project.</p>
@@ -224,7 +313,7 @@ we need to import necessary modules, including <code>Flask</code>, <code>render_
 <p>Here we use a simple application to show how to perform various database operations (CRUD).</p>
 <p>First we need to open pycharm and create a new project.</p>
 <p><img src="img/4.png" alt="open_pycharm"></p>
-<h3 id="app-py-2"><strong>app .py</strong> </h3>
+<h3 id="app-py-4"><strong>app .py</strong> </h3>
 <ol>
 <li>
 <p>Import modules and libraries</p>
@@ -565,6 +654,40 @@ The user need to enter the username and password and then submits the form to re
           </a></div>
         </div>
       </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#static" class="md-toc-link"><p><em><strong>static</strong></em></p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#app-py-2" class="md-toc-link">
+            <p><strong>app .py</strong></p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#statichtml" class="md-toc-link">
+            <p><strong>static.html</strong></p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#control" class="md-toc-link"><p><em><strong>control</strong></em></p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#app-py-3" class="md-toc-link">
+            <p><strong>app .py</strong></p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#controlhtml" class="md-toc-link">
+            <p><strong>control.html</strong></p>
+
+          </a></div>
+        </div>
+      </details>
     
         </div>
       </details>
@@ -588,7 +711,7 @@ The user need to enter the username and password and then submits the form to re
           </summary>
         <div>
           <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#app-py-2" class="md-toc-link">
+          <a href="#app-py-4" class="md-toc-link">
             <p><strong>app .py</strong></p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
