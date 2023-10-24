@@ -66,6 +66,144 @@ from jinja2 import Template
 from flask import Flask, render_template
 
 ```
+## Basic example
+
+### ***variable***
+
+#### **app .py**
+
+a path should be given in "app.py": /test2_variable/<var_1>
+`app.py`
+```python
+class Client:
+    def __init__(self, id, name):
+        self.ID = id
+        self.Name = name
+
+@app.route('/test2_variable/<var_1>')
+def test2(var_1):  # put application's code here
+    user = Client(1, "Dante")
+    other_client = {
+        "ID": 2,
+        "name": "River"
+
+    }
+    return render_template("test2_variable.html", other_client_in_page = other_client, my_name="Dante", var_in_html = var_1, user_in_html = user)
+```
+- In this part, three variables are designed.
+1. `var_1`: the variable is in the path and the data will be given by the clients. It will be transfer to the corresponding template.
+2. `user`: this is a object from the class Client: ID is *1*, and name is *Dante*.
+3. `other_client`: this is a directory with the ID of *2* and name of *river*
+- `render_template` will help the programmer transfer the data in the variables to the template. And in template, those data will be saved in the corresponding variables in template. So, three new variables are designed.
+1. `var_1`: var_in_html
+2. `user`: user_in_html
+3. `other_client`: other_client_page
+4. new data can also be added directly in `render_tempate`, like "Dante" inside `my_name`.
+
+#### **variable.html**
+
+In folder template. a file named `test2_variable.html` are designed.
+
+If the programmer want to use the variables of the template, `{{the name of variable}}` is the rule to use them. two braces should be in both sides. In this file, `var_in_html` is used in line 10.
+
+`test2_variable.html`
+```html {.line-numbers}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>variable</title>
+
+</head>
+<body>
+
+    <h1>var in html is {{ var_in_html }}</h1>
+    <h2>My name is Dante</h2>
+    <h3>{{ user_in_html.ID }}</h3>
+    <h3 style="color: white; background: black">user_in_html is {{ other_client_in_page.name }}</h3>
+    <hr>
+
+    {#bracket#}
+</body>
+</html>
+```
+- `var_in_html` the data inside the variable will be changed accroding to the path client input, the path **http://127.0.0.1:5000/test2_variable/aaa** is used to test, the data inside `var_in_html` is "aaa". it is the result from browser:
+
+![var_in_html](img/var_in_html.jpg)
+
+- `user_in_html` The data in the variable is an object with two parameters. We can use "variable.parameter_name" to show the parameters. It's similar to the common usage. Let it show the ID of the variable.
+
+![user_in_html](img/user_in_html.jpg)
+
+- `other_client_in_page` When we want to show the value in the directory, we can also use the same way: "variable.key_of_value". Let it show the name.
+
+![other_client_in_html](img/other_client_in_html.jpg)
+
+
+
+### ***filter***
+Variables can be modified through "filters", which can be understood as built-in functions and string handling functions in jinja2.
+
+#### **app .py**
+```python
+    @app.route('/')
+    def index():
+        # Sample data
+        my_string = "hELLo WorLD"
+        my_list = ['apple', 'banana', 'cherry']
+        my_variable = None
+        # Render templates and pass data and filters
+        return render_template('template.html', my_string=my_string, my_list=my_list, my_variable=my_variable)
+```
+The render_template function in python code renders the template file template.html with the supplied data, and the variable name in template.html corresponds to the variable name passed in the first piece of code. Thus, when the Flask application runs, it populates the template in template.html based on the data passed in the render_template function, and finally generates an HTML page containing this data.
+
+#### **template.html**
+Need to use pipes after variables (|) Splitting, multiple filters can be called in chains, and the output of the previous filter is used as the input of the latter filter.
+
+`template.html`
+```html
+    <!-- template.html -->
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Jinja2 Filter Example</title>
+    </head>
+    <body>
+        <h2>Original String: {{ my_string }}</h2>
+        <h2>Capitalized: {{ my_string|capitalize }}</h2>
+        <h2>Lowercase: {{ my_string|lower }}</h2>
+        <h2>Uppercase: {{ my_string|upper }}</h2>
+        <h2>Default Value: {{ my_variable|default('No value provided') }}</h2>
+        <h2>List Length: {{ my_list|length }}</h2>
+        <h2>Joined List: {{ my_list|join(', ') }}</h2>
+    </body>
+    </html>
+```
+![Original String](img/Original.png)
+- In this part, five filters are designed.
+
+1. `{{ my_string|capitalize }}`: This filter capitalizes the first letter of the my_string variable, converting the rest of the letters to lowercase.
+
+![Capitalized](img/Capitalized.png)
+
+2. `{{ my_string|lower }}`: This filter converts the my_string variable to lowercase.
+
+![Lowercase](img/Lowercase.png)
+
+
+3. `{{ my_string|upper }}`: This filter converts the my_string variable to uppercase.
+
+![Uppercase](img/Uppercase.png)
+
+4. `{{ my_list|length }}`: This filter calculates and displays the length of the list my_list.
+
+![List Length](img/ListLength.png)
+
+5. `{{ my_list|join(', ') }}`: This filter joins the elements in the list my_list with commas and spaces to form a single string.
+
+![Joined List](img/JoinedList.png)
+![template.html](img/filter.png)
+
 # Flask-SQLAlchemy
 
 ## Introduction
