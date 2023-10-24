@@ -233,7 +233,7 @@ When a user accesses the URL **http://127.0.0.1:5000/test6_static//**, the Flask
         <title>image</title>
     </head>
     <body>
-        <img src="{{ url_for('static', filename="img/faker.jpg")}}" alt="faker">
+        <img src="{{ url_for('static', filename='img/faker.jpg')}}" alt="faker">
     </body>
     </html>
 ```
