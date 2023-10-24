@@ -360,7 +360,7 @@ In the child template, we extend the content in the parent template and override
 
 ![extend_block](img/extend_block.jpg)
 
-`{% extends "inheritance.html" %}`: Subtemplate uses {% extends "inheritance.html" %} to inherit the base template. Populates the {% block content %} section of the base template.
+**extends "inheritance.html"** : Subtemplate uses *extends "inheritance.html"*  to inherit the base template. Populates the *block content* section of the base template.
 ![inheritance](img/inheritance.png)
 
 # Flask-SQLAlchemy
