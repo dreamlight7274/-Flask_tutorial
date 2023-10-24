@@ -330,7 +330,26 @@ def test5():  # put application's code here
 1. `test5_inheritance`: A view function named test5 is defined that handles GET requests for the /test5_inheritance/ path.
 2. `user2`: A client object named user2 is created that has an attribute with ID 3 and the name "Faker".
 3. `return`: It renders a template named test5_inheritance.html using render_template functions and returns it as an HTTP response.
+#### **Base template**
+A base template is a template that contains a common web page structure and layout, which defines the overall frame of the web page and shared elements, such as navigation bars, footers, sidebars, and so on. The base template provides a unified structure that allows for a consistent look and layout when creating multiple web pages, as well as a convenient way to manage shared page elements. Let's go create a base template named template.html, it defines a simple HTML skeleton document.
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>inhertance</title>
+</head>
+<body>
+<h1 style="background: blue">I want to use it top all the time</h1><hr><hr><hr>
+{% block content %}{% endblock %}
+<hr><hr><hr>
+<h1 style="background: blue">I want to use it bottom all the time</h1>
+</body>
+</html>
+```
+
+`{% block %},{% endblock %}`: Define the areas that can be covered by subtemplates, such as `{% block content%}`,`{% endeblock %}`.
 
 # Flask-SQLAlchemy
 
