@@ -1,3 +1,71 @@
+# jinja
+## Introduction
+Jinja is a popular template engine based on Python, widely used in web development, especially in conjunction with web frameworks such as Flask and Django. It allows developers to use specific syntax structures in templates to dynamically generate HTML, XML, or other text format outputs. Jinja provides a flexible syntax and functionality that enables developers to easily integrate dynamic data into static templates, thereby creating dynamic web pages.
+
+## Prepare the jinja
+
+First, download the pip installation package for Windows from the Python website.
+ ![install Janja](img/pip.png)
+
+After the download is complete, you will get a compressed package and unzip the compressed package.
+ ![install Janja](img/setup.png)
+
+Open the system termina and use the cd command to access the uncompressed folder to the executable directory.
+
+Type the following command on the console and press Enter, and the console will automatically install pip.
+> python setup.py install
+
+Enter the following command and press the Enter key to install.
+
+> pip install Janja
+
+ ![install Janja](img/pipjinja.png)
+
+## Basic API usage
+
+The most basic way to do this is to create a template from a Template and render it. If your template is not loaded from a string, but from a file system or other data source, this is not the recommended way anyway:
+
+   ```python
+    from jinja2 import Template
+    template = Template('Hello {{ name }}!')
+    result = template.render(name='John Doe')
+    print(result)
+   ```
+By creating an instance of the Template, you get a new template object that provides a method called render() that calls augmenting the template when there is a dictionary or keyword argument. The dictionary or keyword argument is passed to the template, the template "context".
+
+## Basic structure
+1. Set up routing and view functions (app.py)
+First, we need to set up routing and view functions in the app.py file. In Flask, we can use the @app.route decorator to specify the URL path, and then define a corresponding view function to handle requests for this path. These view functions usually return a rendered template, as well as the data that needs to be passed to the template.
+
+![view function](img/14.png)
+
+2. Design template file structure
+In Flask, template files are used to render dynamic content, including HTML, CSS, JavaScript, etc. In the template file, we can insert variables through double curly braces {{ variable name }} to display dynamic content on the page. You can also use control structures, such as conditional statements and loop statements, to dynamically generate page content.
+
+![template](img/template.png)
+
+3. Static files
+Flask allows us to create a folder called static in the root directory of the application to store static files such as images, CSS, and JavaScript files. These files do not need to be dynamically generated and therefore can be served directly from the server to the client.
+
+![staticfile](img/staticfile.png)
+![template](img/faker.jpg)
+
+4. Import modules
+ we need to import necessary modules, including `Flask`, `render_template`, `Template`
+
+- `Flask`: It is a miniature Web framework written in python that is used for Web applications.
+
+- `render_template`: It is used to render the template file with the data passed to it and generate the final HTML page.
+
+- `Template`: It is used to process template files and generate rendered text.
+
+```python
+
+from jinja2 import Template
+
+from flask import Flask, render_template
+
+```
 # Flask-SQLAlchemy
 
 ## Introduction
@@ -319,7 +387,7 @@ The "Delete User" form allows a user to enter the username of the user they want
 
 
 
-### update.html
+### **update.html**
 
 The "Update Password" form allows a user to change their password by entering their old password, new password, and confirming the new password.
 
