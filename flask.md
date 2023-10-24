@@ -243,6 +243,43 @@ Make sure you have files named style.css and script.js in the static folder. Thi
 
 In Flask, you can use the Jinja2 template engine to control the rendering logic in your templates.   This means that you can use conditional statements and loops in your templates to dynamically generate HTML content.   These controls determine whether to include specific HTML content at render time based on the data provided, you can pass data to the template as it renders, and use control structures to dynamically generate page content based on that data.   This allows you to generate different pages for different situations, providing a better user experience.
 
+#### **app .py**
+```python
+    @app.route('/test4_control')
+    def test4():  # put application's code here
+        mark = 80
+        #mark = 30
+        T1 = [{
+            "ID": "Faker",
+            "position": "Mid"
+        },
+            {
+            "ID": "Zeus",
+            "position": "top"
+            },
+            {
+            "ID": "Oner",
+            "position": "jug"
+            },
+            {
+            "ID": "Gumayusi",
+            "position": "AD"
+            },
+            {
+                "ID": "Keria",
+                "position": "sup"
+            }]
+        return render_template("test4_control.html", mark_in_html= mark, T1_in_html = T1)
+```
+
+- `T1`: Defines a list of multiple dictionaries.
+
+ ![T1](img/T1.png)
+
+- `render_template`: The render_template function was called to render the template file named 'test4_control.html' and the values of the variables mark and T1 were passed.
+
+Examples of conditional and loop statements:
+
 # Flask-SQLAlchemy
 
 ## Introduction
