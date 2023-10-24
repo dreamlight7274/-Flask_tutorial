@@ -306,6 +306,18 @@ Examples of conditional and loop statements:
     </body>
     </html>
 ```
+1. Conditional statements:
+Jinja2's conditional statements are used to perform different actions in a template based on specific conditions. It allows us to execute different blocks of code depending on the truth or falsity of certain conditions.
+
+- `{% if mark_in_html >= 40 %}`: It is a conditional statement. It checks if the variable mark_in_html is greater than or equal to 40. If the condition is true, it will show <h2>You have passed the exam</h2>, otherwise it will show <h2>Sorry, but don't panic</h2>.
+
+![Conditional1](img/Conditional1.png)
+![Conditional2](img/Conditional2.png)
+
+2. Loop statements
+- `{% for teammember in T1_in_html %}`: It is a loop statement that iterates through each element in the list T1_in_html. In each iteration, the variable teammember represents an element in the list, and we can access its properties through the teammember.
+
+![teammember](img/teammember.png)
 
 # Flask-SQLAlchemy
 
