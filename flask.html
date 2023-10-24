@@ -300,7 +300,57 @@ When a user accesses the URL <strong><a href="http://127.0.0.1:5000/test6_static
     {% endfor %}
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
-</code></pre><h1 id="flask-sqlalchemy">Flask-SQLAlchemy </h1>
+</code></pre><ol>
+<li>Conditional statements:<br>
+Jinja2's conditional statements are used to perform different actions in a template based on specific conditions. It allows us to execute different blocks of code depending on the truth or falsity of certain conditions.</li>
+</ol>
+<ul>
+<li><code>{% if mark_in_html &gt;= 40 %}</code>,<code>{% endif%}</code>: It is a conditional statement. It checks if the variable mark_in_html is greater than or equal to 40. If the condition is true, it will show <h2>You have passed the exam</h2>, otherwise it will show <h2>Sorry, but don't panic</h2>.</li>
+</ul>
+<p><img src="img/Conditional1.png" alt="Conditional1"><br>
+<img src="img/Conditional2.png" alt="Conditional2"></p>
+<ol start="2">
+<li>Loop statements</li>
+</ol>
+<ul>
+<li><code>{% for teammember in T1_in_html %}</code>,<code>{% endfor%}</code>: It is a loop statement that iterates through each element in the list T1_in_html. In each iteration, the variable teammember represents an element in the list, and we can access its properties through the teammember.</li>
+</ul>
+<p><img src="img/teammember.png" alt="teammember"></p>
+<h3 id="inheritance"><em><strong>inheritance</strong></em> </h3>
+<p>The most powerful part of Jinja is template inheritance. Template inheritance allows you to build a basic template "skeleton" that contains elements common to your site and defines the blocks that child templates can override.</p>
+<h4 id="app-py-4"><strong>app .py</strong> </h4>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">'/test5_inheritance/'</span><span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">test5</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment"># put application's code here</span>
+    user2 <span class="token operator">=</span> Client<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">"Faker"</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> render_template<span class="token punctuation">(</span><span class="token string">"test5_inheritance.html"</span><span class="token punctuation">)</span>
+</code></pre><ol>
+<li><code>test5_inheritance</code>: A view function named test5 is defined that handles GET requests for the /test5_inheritance/ path.</li>
+<li><code>user2</code>: A client object named user2 is created that has an attribute with ID 3 and the name "Faker".</li>
+<li><code>return</code>: It renders a template named test5_inheritance.html using render_template functions and returns it as an HTTP response.</li>
+</ol>
+<h4 id="base-template"><strong>Base template</strong> </h4>
+<p>A base template is a template that contains a common web page structure and layout, which defines the overall frame of the web page and shared elements, such as navigation bars, footers, sidebars, and so on. The base template provides a unified structure that allows for a consistent look and layout when creating multiple web pages, as well as a convenient way to manage shared page elements. Let's go create a base template named template.html, it defines a simple HTML skeleton document.</p>
+<pre data-role="codeBlock" data-info="html" class="language-html html"><code><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>inhertance<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">background</span><span class="token punctuation">:</span> <span class="token color">blue</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">&gt;</span></span>I want to use it top all the time<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p><img src="img/block1.jpg" alt="blo_ck"> (it should be inside the code, just because it will cause some errors when uploading)</p>
+<pre data-role="codeBlock" data-info="html" class="language-html html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">background</span><span class="token punctuation">:</span> <span class="token color">blue</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">&gt;</span></span>I want to use it bottom all the time<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>block: Define the areas that can be covered by subtemplates, such as</p>
+<p><strong>block content,  endeblock</strong></p>
+<h4 id="subtemplates"><strong>Subtemplates</strong> </h4>
+<p>In the child template, we extend the content in the parent template and override the title and content defined in the parent template in the block tag. The variables and filters defined in the parent template are still accessible in the child template, and new content can be defined.</p>
+<p><img src="img/extend_block.jpg" alt="extend_block"></p>
+<p><strong>extends "inheritance.html"</strong> : Subtemplate uses <em>extends "inheritance.html"</em>  to inherit the base template. Populates the <em>block content</em> section of the base template.<br>
+<img src="img/inheritance.png" alt="inheritance"></p>
+<h1 id="flask-sqlalchemy">Flask-SQLAlchemy </h1>
 <h2 id="introduction-1">Introduction </h2>
 <p>Flask-SQLAlchemy is a powerful extension to Flask that simplifies the integration of SQL databases with applications, and it leverages the SQLAlchemy library (<em>SQLAlchemy is a powerful Python SQL package that allows users to perform a variety of database operations, including creating, reading, updating and deleting (CRUD) data</em>) to provide an easy way to interact with databases. With Flask-SQLAlchemy, users can define models as Python classes corresponding to database tables, which makes working with databases very intuitive. It supports a wide range of relational databases, provides ORM (Object-Relational Mapping) functionality, and helps with tasks such as database migration, query optimisation and session management.</p>
 <p>SQLAlchemy supports a wide range of database backends, including SQLite, MySQL, PostgreSQL, Oracle, and more, so user can easilychoose the suitable database for their project.</p>
@@ -313,7 +363,7 @@ When a user accesses the URL <strong><a href="http://127.0.0.1:5000/test6_static
 <p>Here we use a simple application to show how to perform various database operations (CRUD).</p>
 <p>First we need to open pycharm and create a new project.</p>
 <p><img src="img/4.png" alt="open_pycharm"></p>
-<h3 id="app-py-4"><strong>app .py</strong> </h3>
+<h3 id="app-py-5"><strong>app .py</strong> </h3>
 <ol>
 <li>
 <p>Import modules and libraries</p>
@@ -688,6 +738,27 @@ The user need to enter the username and password and then submits the form to re
           </a></div>
         </div>
       </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#inheritance" class="md-toc-link"><p><em><strong>inheritance</strong></em></p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#app-py-4" class="md-toc-link">
+            <p><strong>app .py</strong></p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#base-template" class="md-toc-link">
+            <p><strong>Base template</strong></p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#subtemplates" class="md-toc-link">
+            <p><strong>Subtemplates</strong></p>
+
+          </a></div>
+        </div>
+      </details>
     
         </div>
       </details>
@@ -711,7 +782,7 @@ The user need to enter the username and password and then submits the form to re
           </summary>
         <div>
           <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#app-py-4" class="md-toc-link">
+          <a href="#app-py-5" class="md-toc-link">
             <p><strong>app .py</strong></p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
