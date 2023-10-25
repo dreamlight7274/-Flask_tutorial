@@ -1,9 +1,45 @@
+# Installation
+## python
+First of all, we should install python. 
+> https://www.python.org/downloads/
+
+Choose a suitable version, adn download it.
+ ![install Python](img/python.jpg)
+## pycharm
+Then, the installation of python IDE `pycharm` is a good choice.
+>https://www.jetbrains.com/pycharm/
+
+ ![install Pycharm](img/pycharm.jpg)
+
+ There are two editions: community and professional. 
+ ![Pycharm edition](img/py_edition.jpg)
+ As student, we can use our student account to register a account to use professional edition for free. 
+
+ > https://www.jetbrains.com/community/education/#students/
+
+ ![free account](img/free_account.jpg)
+
+Fill out the form and submit it, and we'll soon have access to the Pro Edition for a year.
+
+![table register](img/table_register.jpg)
+
+Install pycharm, and log in by your account. There are sevaral choices for you to start a project, because it's a python IDE, now just click Flask project.
+![create project](img/create_project.jpg)
+The python virtual environment is highly recommended, as it helps you create a folder to store the corresponding python and other packages, creating an isolated environment (much like Docker, but not quite the same implementation). So we don't have to configure in a global environment. This makes it very easy for us to work on different projects simultaneously.
+Then, input the path you want to store your project, click "Create", All the preparation for programming have been done.
+It's time to start coding.
+![time to start](img/time_to_start.jpg)
+## add other packages
+In the upper left corner, click "file", "setting". find "Project: your project name", click "Python Interpreter". Click the symbol in the image below:
+![symbol](img/plus.jpg)
+Then just input the name of the package you want to install, and install it. 
+
 # jinja
 ## Introduction
 Jinja is a popular template engine based on Python, widely used in web development, especially in conjunction with web frameworks such as Flask and Django. It allows developers to use specific syntax structures in templates to dynamically generate HTML, XML, or other text format outputs. Jinja provides a flexible syntax and functionality that enables developers to easily integrate dynamic data into static templates, thereby creating dynamic web pages.
 
 ## Prepare the jinja
-
+**Although pytharm have done it for you automatically, This will help you understand how to install some packages from the console.**
 First, download the pip installation package for Windows from the Python website.
  ![install Janja](img/pip.png)
 
