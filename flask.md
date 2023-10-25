@@ -37,7 +37,7 @@ Jinja
 ![slide13](img/slide13.jpg)
 template and Jinja
 ![slide14](img/slide14.jpg)
-Those code is a simple example of a Jinja2 template that contains conditional statements. In Jinja2, we can use wrap code blocks and use add comments. This makes it possible to create multi-line blocks of code, for example: ‘{%%}’’{# #}’. In Jinja2 templates, such a syntax allows us to create more complex template structures, and you can insert variables, logic, and control structures as needed. Multi-line code blocks play an important role in Jinja2 templates. They enable developers to include more complex logic and structure in templates. 
+Those code is a simple example of a Jinja2 template that contains conditional statements. In Jinja2, we can use wrap code blocks and use add comments. This makes it possible to create multi-line blocks of code. In Jinja2 templates, such a syntax allows us to create more complex template structures, and you can insert variables, logic, and control structures as needed. Multi-line code blocks play an important role in Jinja2 templates. They enable developers to include more complex logic and structure in templates. 
 ![slide15](img/slide15.jpg)
 Filters in Jinja2 are used to transform or manipulate variables.  They can be applied to variables in templates to  modify how they are displayed.  In this code example, the render_template function is used to render the template.html template, In this code example, the render_template function is used to render the template.html template, passing in some variables.
 ![slide16](img/slide16.jpg)
