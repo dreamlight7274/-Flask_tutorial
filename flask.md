@@ -1,3 +1,79 @@
+# Powerpoint
+![slide1](img/slide1.jpg)
+
+ The topic and the team members of this project.
+
+![slide2](img/slide2.jpg)
+Four parts of introduction.
+![slide3](img/slide3.jpg)
+Background
+![slide4](img/slide4.jpg)
+creator of the Flask web framework for Python
+
+In the first time, Flask is just a joke from Armin in April fools’day. He just simply packaged existing tools, like werkzeug and jinja and upload them online. 
+werkzeug is a packages including the funtions such as request, response or cookie， which we need in web development. 
+And jinja is a system for template. We have some data, how can we show them to users, jinja will help us build such a structure.
+What make Armin suprised is many people like the package he uploaded. So he chose to make it become a real web framework. And that is flask.
+![slide5](img/slide5.jpg)
+Compared with another famous python framework: Django, flask is small, and it is like a core with basic funtions. If you need any other functions, install the packages, for example, if you need something about database,  install flask-SQLalchemy, or if you want to build a something for administrators, flask-admin can help you. Flask will be extended again and again with the development of project.  It’s so flexible, That’s the advantage of flask. Also, it’s the disadvantage of flask. Yes, we can add the packages we like, But we don't know if these packages can work together or if they will conflict with each other. No one help us test it in advance. This is the reason why flask is not suitable for developing a epic website.
+![slide6](img/slide6.jpg)
+Flask is open source, So more people can help the development of flask, also, You can get more help in the community.
+It’s easy use and friendly to the beginner. it’s lightweight, it doesn't have many conplex rules for people who start to learn it.  Also, with the help of virtual environment of python, it't not so hard for us to build the environment.
+![slide7](img/slide7.jpg)
+Companies using Flask
+Samsung: They use Flask to provide their customers with a seamless UI for easy access to information about their products.
+Netflix: They use Flask within their source code for an easy-to-access API that handles large amounts of data and traffic.
+Uber: It uses Flask for its rideshare Marketplace to facilitate dynamic pricing, intelligent matching of highly-rated drivers with highly-rated passengers, and smart supply positioning.
+![slide8](img/slide8.jpg)
+MTV mode
+![slide9](img/slide9.jpg)
+Introduction about MVC model.
+![slide10](img/slide10.jpg)
+MVC vs MTV
+![slide11](img/slide11.jpg)
+Every part and there jobs.
+![slide12](img/slide12.jpg)
+Jinja
+![slide13](img/slide13.jpg)
+template and Jinja
+![slide14](img/slide14.jpg)
+Those code is a simple example of a Jinja2 template that contains conditional statements. In Jinja2, we can use wrap code blocks and use add comments. This makes it possible to create multi-line blocks of code, for example: ‘{%%}’’{# #}’. In Jinja2 templates, such a syntax allows us to create more complex template structures, and you can insert variables, logic, and control structures as needed. Multi-line code blocks play an important role in Jinja2 templates. They enable developers to include more complex logic and structure in templates. 
+![slide15](img/slide15.jpg)
+Filters in Jinja2 are used to transform or manipulate variables.  They can be applied to variables in templates to  modify how they are displayed.  In this code example, the render_template function is used to render the template.html template, In this code example, the render_template function is used to render the template.html template, passing in some variables.
+![slide16](img/slide16.jpg)
+SQLAlchemy
+![slide17](img/slide17.jpg)
+Introduction about flask-SQLAlchemy
+![slide18](img/slide18.jpg)
+So here we use a simple login and register page to introduce the basic steps to use Flask-SQLAlchemy. First, we need to import the necessary modules: import Flask, SQLAlchemy, and related modules.
+ Then we need to create flask application and set up some configuration:
+ - Set the application's  SECRET_KEY, it is used for encrypting session data to insure security.
+- we use SQLALCHEMY_DATABASE_URI to specify the path to the SQLite database file.
+- create a SQLAlchemy instance and associate it with the flask application to handle database operations.
+
+After that we define user data model:
+ We use db.Model to create a User data model for mapping to the User table in the database
+![slide19](img/slide19.jpg)
+This route used to handle the user registration, it checks if the username already exist in the database when a POST request is made. If the username do not exist, a new user is created with the provided username and password.
+input the username and password and click register, a new user will be created.
+![slide20](img/slide20.jpg)
+It is the mian route of the application, user can accessed this page when navigate to the root URL("/"). It checks whether the user is logged in by verifying the existence of the 'username' in the session.If logged in, it retrieves all users from the database and displays a list of user IDs and usernames. It also provides two links: "Delete User" and "Update User Password."
+when successful login,you can see all the user in the page
+![slide21](img/slide21.jpg)
+This route allows users to delete other users.If a POST request is made , it will delete a user based on the provided username. It checks if the user exists, deletes the user's record from the database, and commits the change. Then a success or failure message is displayed.
+![slide22](img/slide22.jpg)
+This route allows users to change their password.If a POST request is made, it checks if the user is logged in. It verifies the old password, checks if the new password and confirmation match, and updates the password if everything is valid.
+![slide23](img/slide23.jpg)
+Reference part
+![slide24](img/slide24.jpg)
+Some useful websites
+![slide25](img/slide25.jpg)
+Thank you everyone.
+
+
+
+    
+
 # Installation
 ## python
 First of all, we should install python. 
