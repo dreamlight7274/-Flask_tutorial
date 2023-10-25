@@ -24,6 +24,75 @@
     
       <div class="crossnote markdown-preview  ">
       
+<h1 id="powerpoint">Powerpoint </h1>
+<p><img src="img/slide1.jpg" alt="slide1"></p>
+<p>The topic and the team members of this project.</p>
+<p><img src="img/slide2.jpg" alt="slide2"><br>
+Four parts of introduction.<br>
+<img src="img/slide3.jpg" alt="slide3"><br>
+Background<br>
+<img src="img/slide4.jpg" alt="slide4"><br>
+creator of the Flask web framework for Python</p>
+<p>In the first time, Flask is just a joke from Armin in April fools’day. He just simply packaged existing tools, like werkzeug and jinja and upload them online.<br>
+werkzeug is a packages including the funtions such as request, response or cookie， which we need in web development.<br>
+And jinja is a system for template. We have some data, how can we show them to users, jinja will help us build such a structure.<br>
+What make Armin suprised is many people like the package he uploaded. So he chose to make it become a real web framework. And that is flask.<br>
+<img src="img/slide5.jpg" alt="slide5"><br>
+Compared with another famous python framework: Django, flask is small, and it is like a core with basic funtions. If you need any other functions, install the packages, for example, if you need something about database,  install flask-SQLalchemy, or if you want to build a something for administrators, flask-admin can help you. Flask will be extended again and again with the development of project.  It’s so flexible, That’s the advantage of flask. Also, it’s the disadvantage of flask. Yes, we can add the packages we like, But we don't know if these packages can work together or if they will conflict with each other. No one help us test it in advance. This is the reason why flask is not suitable for developing a epic website.<br>
+<img src="img/slide6.jpg" alt="slide6"><br>
+Flask is open source, So more people can help the development of flask, also, You can get more help in the community.<br>
+It’s easy use and friendly to the beginner. it’s lightweight, it doesn't have many conplex rules for people who start to learn it.  Also, with the help of virtual environment of python, it't not so hard for us to build the environment.<br>
+<img src="img/slide7.jpg" alt="slide7"><br>
+Companies using Flask<br>
+Samsung: They use Flask to provide their customers with a seamless UI for easy access to information about their products.<br>
+Netflix: They use Flask within their source code for an easy-to-access API that handles large amounts of data and traffic.<br>
+Uber: It uses Flask for its rideshare Marketplace to facilitate dynamic pricing, intelligent matching of highly-rated drivers with highly-rated passengers, and smart supply positioning.<br>
+<img src="img/slide8.jpg" alt="slide8"><br>
+MTV mode<br>
+<img src="img/slide9.jpg" alt="slide9"><br>
+Introduction about MVC model.<br>
+<img src="img/slide10.jpg" alt="slide10"><br>
+MVC vs MTV<br>
+<img src="img/slide11.jpg" alt="slide11"><br>
+Every part and there jobs.<br>
+<img src="img/slide12.jpg" alt="slide12"><br>
+Jinja<br>
+<img src="img/slide13.jpg" alt="slide13"><br>
+template and Jinja<br>
+<img src="img/slide14.jpg" alt="slide14"><br>
+Those code is a simple example of a Jinja2 template that contains conditional statements. In Jinja2, we can use wrap code blocks and use add comments. This makes it possible to create multi-line blocks of code. In Jinja2 templates, such a syntax allows us to create more complex template structures, and you can insert variables, logic, and control structures as needed. Multi-line code blocks play an important role in Jinja2 templates. They enable developers to include more complex logic and structure in templates.<br>
+<img src="img/slide15.jpg" alt="slide15"><br>
+Filters in Jinja2 are used to transform or manipulate variables.  They can be applied to variables in templates to  modify how they are displayed.  In this code example, the render_template function is used to render the template.html template, In this code example, the render_template function is used to render the template.html template, passing in some variables.<br>
+<img src="img/slide16.jpg" alt="slide16"><br>
+SQLAlchemy<br>
+<img src="img/slide17.jpg" alt="slide17"><br>
+Introduction about flask-SQLAlchemy<br>
+<img src="img/slide18.jpg" alt="slide18"><br>
+So here we use a simple login and register page to introduce the basic steps to use Flask-SQLAlchemy. First, we need to import the necessary modules: import Flask, SQLAlchemy, and related modules.<br>
+Then we need to create flask application and set up some configuration:</p>
+<ul>
+<li>Set the application's  SECRET_KEY, it is used for encrypting session data to insure security.</li>
+<li>we use SQLALCHEMY_DATABASE_URI to specify the path to the SQLite database file.</li>
+<li>create a SQLAlchemy instance and associate it with the flask application to handle database operations.</li>
+</ul>
+<p>After that we define user data model:<br>
+&nbsp;We use db.Model to create a User data model for mapping to the User table in the database<br>
+<img src="img/slide19.jpg" alt="slide19"><br>
+This route used to handle the user registration, it checks if the username already exist in the database when a POST request is made. If the username do not exist, a new user is created with the provided username and password.<br>
+input the username and password and click register, a new user will be created.<br>
+<img src="img/slide20.jpg" alt="slide20"><br>
+It is the mian route of the application, user can accessed this page when navigate to the root URL("/"). It checks whether the user is logged in by verifying the existence of the 'username' in the session.If logged in, it retrieves all users from the database and displays a list of user IDs and usernames. It also provides two links: "Delete User" and "Update User Password."<br>
+when successful login,you can see all the user in the page<br>
+<img src="img/slide21.jpg" alt="slide21"><br>
+This route allows users to delete other users.If a POST request is made , it will delete a user based on the provided username. It checks if the user exists, deletes the user's record from the database, and commits the change. Then a success or failure message is displayed.<br>
+<img src="img/slide22.jpg" alt="slide22"><br>
+This route allows users to change their password.If a POST request is made, it checks if the user is logged in. It verifies the old password, checks if the new password and confirmation match, and updates the password if everything is valid.<br>
+<img src="img/slide23.jpg" alt="slide23"><br>
+Reference part<br>
+<img src="img/slide24.jpg" alt="slide24"><br>
+Some useful websites<br>
+<img src="img/slide25.jpg" alt="slide25"><br>
+Thank you everyone.</p>
 <h1 id="installation">Installation </h1>
 <h2 id="python">python </h2>
 <p>First of all, we should install python.</p>
@@ -676,7 +745,11 @@ The user need to enter the username and password and then submits the form to re
       </div>
       <div class="md-sidebar-toc">
 <div class="md-toc">
-<details style="padding:0;;padding-left:0px;" open="">
+<div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#powerpoint" class="md-toc-link">
+            <p>Powerpoint</p>
+
+          </a></div><details style="padding:0;;padding-left:0px;" open="">
         <summary class="md-toc-link-wrapper">
           <a href="#installation" class="md-toc-link"><p>Installation</p>
 </a>
